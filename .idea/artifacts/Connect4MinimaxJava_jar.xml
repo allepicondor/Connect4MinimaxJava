@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="Connect4MinimaxJava:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Connect4MinimaxJava_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Connect4MinimaxJava.jar">
+        <element id="module-output" name="Connect4MinimaxJava" />
+      </element>
+    </root>
+  </artifact>
+</component>
