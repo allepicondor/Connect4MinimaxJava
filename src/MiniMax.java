@@ -1,7 +1,18 @@
-import static java.lang.Math.max;
-import static java.lang.Math.min;
+import java.util.concurrent.Callable;
 
-public class MiniMax {
+import static java.lang.Math.*;
+
+public class MiniMax implements Callable {
+    Connect4 game;
+    int depth;
+    boolean maximizingPlayer;
+    int index;
+    MiniMax(Connect4 Game,int Depth, boolean MaximizingPlayer,int Index){
+        game = Game;
+        depth = Depth;
+        maximizingPlayer = MaximizingPlayer;
+        index = Index;
+    }
     static double evaluate(int[][] board, boolean maximizingPlayer) {
         int red = 0;
         int black = 0;
@@ -163,5 +174,14 @@ public class MiniMax {
             if (first) return moves;
             return new double[]{minEval};
         }
+    }
+
+
+    @Override
+    public Object call() throws Exception {
+        double[] moves = minimax(game,depth,Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,false,false);
+        System.out.println("COLOUM: "+index+" FINISHED");
+        //System.out.println(moves[0]);
+        return round(moves[0]);
     }
 }
